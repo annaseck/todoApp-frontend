@@ -23,19 +23,11 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await getUser();       
-        if (response && response.data) {
-          setUser(response.data.user);
-        } else {
-          console.error('Response does not contain data');
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
+      const res = await getUser();
+      setUser(res.data.user);
     };
     fetchData();
-  });
+  });	
 
   return (
     <div className="App bg-gradient-to-r from-gray-300 to-green-200">
